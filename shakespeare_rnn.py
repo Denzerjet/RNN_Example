@@ -17,10 +17,10 @@ text_indices = [char_to_idx[char] for char in text]
 # Hyperparameters
 seq_length = 10  # Length of input sequence
 batch_size = 1  # Batch size
-hidden_size = 256 
+hidden_size = 512 # 256
 num_layers = 3  # Number of RNN layers
-learning_rate = 0.001
-num_epochs = 120
+learning_rate = 0.0001 # 0.001
+num_epochs = 2000 # 120
 
 class RNN(nn.Module):
     def __init__(self, input_size, hidden_size, output_size, num_layers):
@@ -108,4 +108,15 @@ def generate_text(model, start_text, length):
 
 # Generate text
 start_text = "To be, or "
+print("Example: input (To be, or ) | length: 100")
 print(generate_text(model, start_text, 100))
+
+# nonesense chars explanations
+# how to improve
+
+while True:
+    print("Enter string")
+    start_text = input()
+    print("Enter num chars")
+    length = int(input())
+    print(generate_text(model, start_text, length))
